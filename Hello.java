@@ -14,6 +14,7 @@ class A {
 class B extends A {
     B() {
         // super(); by default
+        // this(); calls the constructor of same class
         System.out.println("in B");
     }
 
@@ -35,3 +36,8 @@ class Hello {
         // To also have In A int pass int in super
     }
 }
+// Java follow naming convention of camelCase
+
+// class , Interface -> CamelCase
+// variables and methods -> small
+// constants -> Capital
