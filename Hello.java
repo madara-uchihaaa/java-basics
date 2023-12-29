@@ -1,47 +1,49 @@
 class Hello {
 
     public static void main(String[] arguments) {
+        // Operators
 
-        // Type casting
+        int a = 10;
+        int b = 20;
 
-        // byte b = 127;
-        // int a = 256;
+        System.out.println(a + b);
+        System.out.println(a - b);
+        System.out.println(a * b);
+        System.out.println((double) a / b);
+        System.out.println(a % b);
 
-        // b = a // error due to data loss
-        // b = (byte) a // no error why ? Explicit type casting
+        // Increment and Decrement
 
-        // a = b // no error why ?
-        // Automatic type casting
+        // a = a + 1; or a += 1; or a++; all are same
+        // a = a - 1; or a -= 1; or a--; all are same
+        // a++ and ++a both are same but a++ is post increment and ++a is pre increment
 
-        // float f = 5.6f;
-        // int x = 5.6; // error
-        // int x = (int) 5.6; // no error but data loss
+        // Pre increment VS Post increment
+        // Pre increment: First increment the value and then use it
+        // Post increment: First use the value and then increment it
+        
+        // Example of Pre increment
+        int c = 10;
+        int d = ++c;
+        System.out.println(c);
+        System.out.println(d);
 
-        byte b = 127;
-        System.out.println(b);
-
-        int a = b;
-        System.out.println(a);
-
-        int x = 268;
-        byte k = (byte) x; // Error due to data loss
-        // k will be 12 as 268% 128 = 12
-        System.out.println(k + " " + x);
+        // Example of Post increment
+        int e = 10;
+        int f = e++;
+        System.out.println(e);
+        System.out.println(f);
 
 
-        float f = 5.6f;
-        int y = (int)f;
+        // Comparison Operators
 
-        System.out.println(y); // 5
-
-        // Type promotion
-
-        // byte -> short -> int -> long -> float -> double
-        byte b1 = 10;
-        byte b2 = 20;
-
-        int result = b1 * b2; // b1 and b2 will be promoted to int
-
-        System.out.println(result);
+        int g = 10;
+        int h = 20;
+        System.out.println(g == h);
+        System.out.println(g != h);
+        System.out.println(g > h);
+        System.out.println(g < h);
+        System.out.println(g >= h);
+        System.out.println(g <= h);
     }
 }
