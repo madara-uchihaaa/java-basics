@@ -1,49 +1,51 @@
 class Hello {
 
     public static void main(String[] arguments) {
-        // Operators
+        // Logical Operators
 
         int a = 10;
         int b = 20;
-
-        System.out.println(a + b);
-        System.out.println(a - b);
-        System.out.println(a * b);
-        System.out.println((double) a / b);
-        System.out.println(a % b);
-
-        // Increment and Decrement
-
-        // a = a + 1; or a += 1; or a++; all are same
-        // a = a - 1; or a -= 1; or a--; all are same
-        // a++ and ++a both are same but a++ is post increment and ++a is pre increment
-
-        // Pre increment VS Post increment
-        // Pre increment: First increment the value and then use it
-        // Post increment: First use the value and then increment it
-        
-        // Example of Pre increment
-        int c = 10;
-        int d = ++c;
-        System.out.println(c);
-        System.out.println(d);
-
-        // Example of Post increment
-        int e = 10;
-        int f = e++;
-        System.out.println(e);
-        System.out.println(f);
+        int c = 30;
+        int d = 40;
 
 
-        // Comparison Operators
+        System.out.println("AND Operator");
+        if (a > b && c > d) {
+            System.out.println("a is greater than b AND c is greater than d");
+        } else {
+            System.out.println("a is NOT greater than b AND c is NOT greater than d");
+        }
 
-        int g = 10;
-        int h = 20;
-        System.out.println(g == h);
-        System.out.println(g != h);
-        System.out.println(g > h);
-        System.out.println(g < h);
-        System.out.println(g >= h);
-        System.out.println(g <= h);
+        System.out.println("OR Operator");
+
+        if (a > b || c > d) {
+            System.out.println("a is greater than b OR c is greater than d");
+        } else {
+            System.out.println("a is NOT greater than b OR c is NOT greater than d");
+        }
+
+        System.out.println("NOT Operator");
+
+        if (!(a > b)) {
+            System.out.println("a is NOT greater than b");
+        } else {
+            System.out.println("a is greater than b");
+        }
     }
+
+    // AND -> short circuit
+    // true && true = true
+    // true && false = false
+    // false && true = false
+    // false && false = false
+
+    // OR -> short circuit
+    // true || true = true
+    // true || false = true
+    // false || true = true
+    // false || false = false
+
+    // NOT
+    // !true = false
+    // !false = true
 }
