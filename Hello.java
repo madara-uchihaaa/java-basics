@@ -1,25 +1,47 @@
 class Hello {
 
     public static void main(String[] arguments) {
-        // Literals
-        // They are the values that are assigned to variables
 
-        Integer age = 0b101; // 5
-        System.out.println(age);
+        // Type casting
 
-        Integer num = 10_10_10;
-        System.out.println(num);
+        // byte b = 127;
+        // int a = 256;
 
-        double d = 1;
-        // Double x , double x [correct]
-        // Error -> d = 1.0;
-        System.out.println(d);
+        // b = a // error due to data loss
+        // b = (byte) a // no error why ? Explicit type casting
 
-        // Character
-        char c = 'a';
-        System.out.println(c);
-        c++;
-        // c = c + 1; [Error]
-        System.out.println(c);
+        // a = b // no error why ?
+        // Automatic type casting
+
+        // float f = 5.6f;
+        // int x = 5.6; // error
+        // int x = (int) 5.6; // no error but data loss
+
+        byte b = 127;
+        System.out.println(b);
+
+        int a = b;
+        System.out.println(a);
+
+        int x = 268;
+        byte k = (byte) x; // Error due to data loss
+        // k will be 12 as 268% 128 = 12
+        System.out.println(k + " " + x);
+
+
+        float f = 5.6f;
+        int y = (int)f;
+
+        System.out.println(y); // 5
+
+        // Type promotion
+
+        // byte -> short -> int -> long -> float -> double
+        byte b1 = 10;
+        byte b2 = 20;
+
+        int result = b1 * b2; // b1 and b2 will be promoted to int
+
+        System.out.println(result);
     }
 }
