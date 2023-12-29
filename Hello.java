@@ -71,5 +71,39 @@ class Hello {
             }
             System.out.println(l + " is less than 10");
         }
+
+        // Terinary operator
+
+        System.out.println("Terinary operator");
+        int m = 10;
+        int n = 20;
+
+        int result = (m > n) ? m : n;
+        System.out.println(result + " is greater");
+
+        // New switch statement
+
+        System.out.println("New switch statement");
+
+        String name = "Sam";
+
+        switch (name) {
+            case "John", "Dor" -> System.out.println("Name is John or Dor");
+            case "Sam" -> System.out.println("Name is Sam");
+            default -> System.out.println("Name is not John, Dor or Sam");
+        }
+
+        // Swwitch statement with yield
+
+        System.out.println("Switch statement with yield");
+
+        String name1 = "Sam";
+
+        String result1 = switch (name1) {
+            case "John", "Dor" -> "Name is John or Dor";
+            case "Sam" -> "Name is Sam";
+            default -> "Name is not John, Dor or Sam";
+        };
+        System.out.println(result1);
     }
 }
