@@ -1,34 +1,25 @@
-class Hello{
+class Hello {
 
-    public static void main(String[] arguments){
+    public static void main(String[] arguments) {
+        // Literals
+        // They are the values that are assigned to variables
 
-        // Primitive data types
+        Integer age = 0b101; // 5
+        System.out.println(age);
 
-        // 1 Integer -> int, [4 bytes] long [8 bytes], short [2 bytes], byte [1 byte], default int
+        Integer num = 10_10_10;
+        System.out.println(num);
 
-        // 2 Float -> float [4 bytes], double [8 bytes] , default double for float use f or F
+        double d = 1;
+        // Double x , double x [correct]
+        // Error -> d = 1.0;
+        System.out.println(d);
 
-        // 3 Double -> double
-        // 4 Boolean -> boolean [1 byte]
-        // 5 Char -> char [2 bytes], it use Unicode character set 
-        // 6 String -> String
-
-
-        Integer i = 2;
-        Integer j = 3;
-        Float f = 2.3f;
-        Double d = 2.3;
-        Boolean b = true;
-        Character c = 'a';
-        String s = "Hello World!";
-        Byte by = 1;
-
-        System.out.println("World! let check");
-        System.out.println(i+j);
-        System.out.println(f+d);
-        System.out.println(b);
+        // Character
+        char c = 'a';
         System.out.println(c);
-        System.out.println(s);
-        System.out.println(by);
+        c++;
+        // c = c + 1; [Error]
+        System.out.println(c);
     }
 }
