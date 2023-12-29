@@ -1,16 +1,23 @@
 class Hello {
     public static void main(String[] arguments) {
-        // Inside JVM stack and heap used to store data
-        // Stack stores local variables and method calls
-        // Heap stores objects and arrays
+        int[] numbers = { 1, 2, 3, 4, 5 };
+        System.out.println("numbers length is: " + numbers.length);
+        for (int item : numbers) {
+            System.out.println("Count is: " + item);
+        }
 
-        // Stack VS Heap
-        // Stack is faster than heap
-        // Stack is limited in size, heap is not
-        // Stack is thread specific, heap is not
-        // Stack is cleaned up automatically, heap is not
-        // Use case 
-        // Stack: local variables, method calls
-        // Heap: objects, arrays
+        int[] num = new int[10];
+        // By default, all the values are 0
+        for (int i = 0; i < 10; i++) {
+            num[i] = i;
+        }
+
+        num[0] = 10000;
+
+        for (int item : num) {
+            System.out.println("Count is: " + item);
+        }
+
+        // Index is 0 based
     }
 }
