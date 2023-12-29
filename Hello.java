@@ -1,23 +1,29 @@
 class Hello {
     public static void main(String[] arguments) {
-        int[] numbers = { 1, 2, 3, 4, 5 };
-        System.out.println("numbers length is: " + numbers.length);
-        for (int item : numbers) {
-            System.out.println("Count is: " + item);
+        int[][] a = new int[4][4];
+        // Row is compulsory, column is optional
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                int random = (int) (Math.random() * 100);
+                a[i][j] = random;
+            }
         }
 
-        int[] num = new int[10];
-        // By default, all the values are 0
-        for (int i = 0; i < 10; i++) {
-            num[i] = i;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                System.out.print(a[i][j] + "\t");
+                // \t is tab
+            }
+            System.out.println();
         }
-
-        num[0] = 10000;
-
-        for (int item : num) {
-            System.out.println("Count is: " + item);
+        System.out.println("Enhanced for loop");
+        // Enhanced for loop
+        for (int[] row : a) {
+            for (int element : row) {
+                System.out.print(element + "\t");
+            }
+            System.out.println();
         }
-
-        // Index is 0 based
     }
 }
