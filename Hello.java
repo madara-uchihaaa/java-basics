@@ -2,10 +2,18 @@ class Human {
     private int age; // private variable -> can't be accessed outside the class
     String name;
 
-    Human(int age, String name) {
+    Human(int age, String name) { // Parameterized Constructor
         this.age = age;
         this.name = name;
     }
+    Human() { // Default Constructor
+        this.age = 10;
+        this.name = "Ram JI";
+    }
+    // By default, if we don't create any constructor, java will create a default
+
+    // RightClick -> Source -> Generate Constructor using Fields
+    // RightClick -> Source -> Generate Constructor w/o Fields
 
     void setAge(int age) {
         this.age = age;
