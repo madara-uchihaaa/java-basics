@@ -1,44 +1,37 @@
-class Human {
-    private int age; // private variable -> can't be accessed outside the class
-    String name;
-
-    Human(int age, String name) { // Parameterized Constructor
-        this.age = age;
-        this.name = name;
-    }
-    Human() { // Default Constructor
-        this.age = 10;
-        this.name = "Ram JI";
-    }
-    // By default, if we don't create any constructor, java will create a default
-
-    // RightClick -> Source -> Generate Constructor using Fields
-    // RightClick -> Source -> Generate Constructor w/o Fields
-
-    void setAge(int age) {
-        this.age = age;
-        // this -> refers to the current object of the class
-        // age -> refers to the parameter
-        // age = age will give error because both are same and it will refer to the
-        // parameter
+class A {
+    // By default every class get extends Object class
+    A() {
+        // super(); by default
+        System.out.println("in A");
     }
 
-    int getAge() {
-        return this.age;
+    A(int i) {
+        // super(); by default
+        System.out.println("in A int");
     }
-    // Naming convention for getters and setters, its not compulsory but its a good
-    // practice
+}
 
-    // RightClick -> Source -> Generate Getters and Setters
+class B extends A {
+    B() {
+        // super(); by default
+        System.out.println("in B");
+    }
+
+    B(int i) {
+        // super(); by default
+        super(i);
+        System.out.println("in B int");
+    }
 }
 
 class Hello {
     public static void main(String[] arguments) {
-        Human h = new Human(20, "John");
-        h.name = "Raj";
-        // h.age = 24; // error -> age is private
-
-        h.setAge(24); // correct
-        System.out.println(h.getAge()); // correct
+        B b = new B(9);
+        // A constructor is called first, then B constructor is called
+        // case 1 when B, A -> In A and B;
+        // case 2 when B(int) + B and A -> In A and B int
+        // case 3 when B(int) + B and A and A(int) -> In A and B int
+        // Every construtor have super 
+        // To also have In A int pass int in super
     }
 }
