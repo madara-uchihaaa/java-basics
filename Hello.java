@@ -1,20 +1,27 @@
-class Hello {
+class Calculator{
 
+    public int add(int a, int b){
+        return a+b;
+    }
+    public int subtract(int a, int b){
+        return a-b;
+    }
+    public int multiply(int a, int b){
+        return a*b;
+    }
+    public int divide(int a, int b){
+        return a/b;
+    }
+}
+
+public class Hello {
     public static void main(String[] arguments) {
-        do {
-            System.out.println("Hello World!");
-        } while (false);
-        // Do while vs while
-        // do while will always execute at least once
-        // while will only execute if the condition is true
+        System.out.println("Hello, world!");
 
-        String[] days = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-
-        for (int i = 0; i < days.length; i++) {
-            System.out.println("The day is " + days[i]);
-            for (int hours = 1; hours <= 24; hours++) {
-                System.out.println("The hour is " + hours + " of " + days[i]);
-            }
-        }
+        Calculator calc = new Calculator();
+        System.out.println("1 + 2 = " + calc.add(1, 2));
+        System.out.println("1 - 2 = " + calc.subtract(1, 2));
+        System.out.println("1 * 2 = " + calc.multiply(1, 2));
+        System.out.println("1 / 2 = " + calc.divide(1, 2));
     }
 }
