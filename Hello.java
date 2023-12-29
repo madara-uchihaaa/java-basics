@@ -1,46 +1,22 @@
 class Hello {
     public static void main(String[] arguments) {
-        // Strings in java;
+        String name = new String("Rishabh");
+        name = name + " Srivastava";
+        System.out.println("Hello, " + name);
 
-        // Method 1
-        String greeting = "Hello 1";
-        System.out.println(greeting);
+        //
+        // String constant pool -> The place where all the string literals are stored
+        // and its refernce are used by the stack;
 
-        // Method 2
-        String greeting2 = new String("Hello 2");
-        System.out.println(greeting2);
+        // Mutable -> String Buffer, String Builder
+        // Immutable -> String
 
-        // Method 3
-        String greeting3 = new String();
-        System.out.println(greeting3);
-        // Result: <empty string>
+        StringBuffer sb = new StringBuffer("Rishabh");
+        sb.append(" Srivastava");
+        System.out.println(sb + " " + sb.length() + " " + sb.capacity());
+        // capacity -> Its the size of the string buffer, it works as a dynamic array
 
-        // Method 4
-        String greeting4 = new String(new char[] { 'H', 'e', 'l', 'l', 'o', ' ', '4' });
-        System.out.println(greeting4);
 
-        // Method 5
-        String greeting5 = new String(new byte[] { 72, 101, 108, 108, 111, 32, 53 });
-        System.out.println(greeting5);
-
-        // Method 6
-        System.out.println(greeting + "->" + greeting2);
-        // Result: Hello 1->Hello 2
-
-        System.out.println(greeting.charAt(0));
-        // Result: H
-
-        System.out.println(greeting.length());
-        // Result: 6
-
-        System.out.println(greeting.substring(0, 3));
-        // Result: Hel
-
-        System.out.println(greeting.indexOf("l"));
-        // Result: 2
-
-        System.out.println(greeting.concat(greeting5));
-        // Result: Hello 1Hello 5
-
+        // String Builder -> It is same as string buffer but it is not thread safe
     }
 }
