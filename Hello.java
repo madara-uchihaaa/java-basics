@@ -3,11 +3,19 @@ sealed class A permits B, C {
         System.out.println("Hello");
     }
 }
-final class B extends A {}
-final class C extends A {}
+
+final class B extends A {
+}
+
+final class C extends A {
+}
+
+class X {
+}
+
 
 class Hello {
     public static void main(String[] arguments) {
-   
+
     }
 }
