@@ -1,27 +1,24 @@
-abstract class A {
-    public abstract void print();
-    public abstract void print2();
+interface Computer{
+    void compute();
 }
 
-// class B extends A {
-//     public void print() {
-//         System.out.println("Hello");
-//     }
-// }
-
+class Laptop implements Computer{
+    public void compute(){
+        System.out.println("Laptop");
+    }
+}
+class Desktop implements Computer{
+    public void compute(){
+        System.out.println("Desktop");
+    }
+}
 class Hello {
     public static void main(String[] arguments) {
-        // B b = new B();
-        // Anonymous class with abstract class
-        A b = new A() {
-            public void print() {
-                System.out.println("Hello");
-            }
-            public void print2() {
-                System.out.println("Hello2");
-            }
-        };
-        b.print();
-        b.print2(); 
+        System.out.println("Hello, world!");
+        Computer c = new Laptop();
+        c.compute();
+
+        Computer d = new Desktop();
+        d.compute();
     }
 }
