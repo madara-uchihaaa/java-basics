@@ -1,44 +1,40 @@
 class A {
-    int marks; // 1:
-    // private int marks; // 2:
-    protected int age; // 3:
+    public void show() {
+        System.out.println("in A");
+    }
 }
+
 class B extends A {
-    void display() {
-        System.out.println(age); // 3: Will work
-        System.out.println(marks); // 1: Will work
-        // System.out.println(marks); // 2: Will not work due to private
+    public void show() {
+        System.out.println("in B");
     }
 }
-class D extends B {
-    void display() {
-        System.out.println(age); // 3: Will work
-        System.out.println(marks); // 1: Will work
-        // System.out.println(marks); // 2: Will not work due to private
-    }
-}
+
 class Hello {
     public static void main(String[] arguments) {
-        A a = new A();
-        a.marks = 100; // 1: Will work
-        a.marks = 100; // 2: Will not work due to private
+        // Polymorphism in java
+
+        // 1. Method overloading -> Compile time polymorphism
+        // 2. Method overriding -> Run time polymorphism
+
+        // Example of method overloading
+        // 1. Number of parameters
+        // 2. Data type of parameters
+        // 3. Sequence of parameters
+
+        // Example of method overriding
+        // 1. Inheritance
+        // 2. Same method name
+        // 3. Same parameters
+        // 4. Same return type
+        // 5. Different body
+
+        A obj = new A();
+        obj.show();
+        // show not depends 
+
+        obj = new B();
+        obj.show();
 
     }
 }
-
-// 1: Public means the variable/method is accessible from anywhere
-// 2: Private means the variable/method is accessible only within the class
-// 3: Protected means the variable/method is accessible within the class and its subclasses
-
-
-//                          Private   Public      Protected  Default
-
-// Same Class               Y         Y           Y          Y
-
-// Same package subclass    N         Y           Y          Y
-
-// Same pkge nonSubclass    N         Y           Y          Y
-
-// Diff package subclass    N         Y           Y          N
-
-// Diff package nonSubclass N         Y           N          N
