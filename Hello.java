@@ -1,40 +1,35 @@
-class A {
-    public void show() {
-        System.out.println("in A");
+// To prevent getting extended use final
+// final class A{ // A cannot be get extended
+// Method can also be final
+class A{ // A can be get extended
+    public void print(){
+        System.out.println("A");
+    }
+    public int add(int a, int b){
+        return a + b;
     }
 }
 
-class B extends A {
-    public void show() {
-        System.out.println("in B");
+class B extends A{
+    public void print(){
+        System.out.println("B");
+    }
+    public int add(int a, int b){
+        return a + b + 1;
     }
 }
 
 class Hello {
     public static void main(String[] arguments) {
-        // Polymorphism in java
+        int x = 3; // x is a variable of type int will work;
+        // final int x = 3; // x is a variable of type int will not work;
+        final int y = 2; // y is a variable of type int will not work;
+        // y = y * 2; // ? 
+        x = x * 17;
+        System.out.println("x is " + x);
 
-        // 1. Method overloading -> Compile time polymorphism
-        // 2. Method overriding -> Run time polymorphism
-
-        // Example of method overloading
-        // 1. Number of parameters
-        // 2. Data type of parameters
-        // 3. Sequence of parameters
-
-        // Example of method overriding
-        // 1. Inheritance
-        // 2. Same method name
-        // 3. Same parameters
-        // 4. Same return type
-        // 5. Different body
-
-        A obj = new A();
-        obj.show();
-        // show not depends 
-
-        obj = new B();
-        obj.show();
-
+        A a = new A();
+        a.print();
+        System.out.println(a.add(1, 2));
     }
 }
