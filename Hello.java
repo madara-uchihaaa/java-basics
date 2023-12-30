@@ -1,46 +1,13 @@
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
-class Student {
-    int marks;
-    String name;
-
-    Student(int marks, String name) {
-        this.marks = marks;
-        this.name = name;
-    }
-}
-
 class Hello {
     public static void main(String[] arguments) {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = List.of(1, 2, 3, 4, 5);
 
-        for (int i = 0; i < 10; i++) {
-            list.add(i);
-        }
+        Integer sum = list.stream()
+            .filter(i -> i % 2 == 0)
+            .map(i -> i * 2)
+            .reduce(0, (a, b) -> a + b);
 
-        list.sort(Collections.reverseOrder());
-        System.out.println(list);
-
-        list.sort((a, b) -> b - a);
-        System.out.println(list);
-
-        list.sort((a, b) -> a - b);
-        System.out.println(list);
-
-
-
-        List<Student> students = new ArrayList<Student>();
-
-        for (int i = 0; i < 10; i++) {
-            students.add(new Student(i, "Student " + i));
-        }
-
-        students.sort((a, b) -> b.marks - a.marks);
-
-        for (Student student : students) {
-            System.out.println(student.name + " " + student.marks);
-        }
+        System.out.println(sum);
     }
 }
