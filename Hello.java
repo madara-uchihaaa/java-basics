@@ -1,74 +1,37 @@
-// class A implements Runnable {
-//     // In thread a run method is there and we have to override it.
-//     public void run() {
-//         for (int i = 0; i < 100; i++) {
-//             System.out.println("A->" + i);
-//             // Wait
-//             try {
-//                 Thread.sleep(10);
-//             } catch (InterruptedException e) {
-//                 e.printStackTrace();
-//             }
-//         }
-//     }
-// }
-
-class B implements Runnable {
-    public void run() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println("B->" + i);
-            // Wait
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
+import java.util.ArrayList;
+import java.util.Collection;
 
 class Hello {
     public static void main(String[] arguments) {
-        // Threads in Java
+        // Different apis of ds
+        // 1. Array
+        // 2. ArrayList
+        // 3. LinkedList
+        // 4. Stack
+        // 5. Queue
+        // 6. PriorityQueue
+        // 7. Deque
+        // 8. HashSet
+        // 9. LinkedHashSet
+        // 10. TreeSet
+        // 11. HashMap
+        // 12. LinkedHashMap
+        // 13. TreeMap
+        // 14. HashTable
+        // 15. WeakHashMap
+        // 16. IdentityHashMap
+        // 17. EnumMap
+        // 18. PriorityQueue
+        // ... and many more
 
-        // Method 1
-        // Runnable a = new A();
+        Collection<String> collection = new ArrayList<String>();
 
-        // Method 2
-        // Runnable a = new Runnable() {
-        //     public void run() {
-        //         for (int i = 0; i < 100; i++) {
-        //             System.out.println("A->" + i);
-        //             // Wait
-        //             try {
-        //                 Thread.sleep(10);
-        //             } catch (InterruptedException e) {
-        //                 e.printStackTrace();
-        //             }
-        //         }
-        //     }
-        // };
+        collection.add("Hello");
+        collection.add("World");
+        collection.add("Rishabh");
 
-        // Method 3
-        Runnable a = () -> {
-            for (int i = 0; i < 100; i++) {
-                System.out.println("A->" + i);
-                // Wait
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
+        collection.forEach(item -> System.out.println("value->:" + item));
 
-        Runnable b = new B();
-
-        Thread t1 = new Thread(a);
-        Thread t2 = new Thread(b);
-
-        t1.start();
-        t2.start();
-
+        System.out.println(collection);
     }
 }
