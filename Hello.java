@@ -1,24 +1,27 @@
-class A {
-    public void print() {
-        System.out.println("A");
-    }
+abstract class A {
+    public abstract void print();
+    public abstract void print2();
 }
+
+// class B extends A {
+//     public void print() {
+//         System.out.println("Hello");
+//     }
+// }
+
 class Hello {
     public static void main(String[] arguments) {
-        A a = new A() {
+        // B b = new B();
+        // Anonymous class with abstract class
+        A b = new A() {
             public void print() {
-                System.out.println("C");
+                System.out.println("Hello");
+            }
+            public void print2() {
+                System.out.println("Hello2");
             }
         };
-        // Anonymous class is created and its object is assigned to a.
-        // Its a bit tricky, but the above code is equivalent to:
-        // class C extends A {
-        //     public void print() {
-        //         System.out.println("C");
-        //     }
-        // }
-        A b = new A();
-        a.print();
         b.print();
+        b.print2(); 
     }
 }
