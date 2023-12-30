@@ -1,3 +1,4 @@
+package calculator;
 class AdvanceCalculator extends Calculator {
     // Inheritance
     public int power(int x, int y) {

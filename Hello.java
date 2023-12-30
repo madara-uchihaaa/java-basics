@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import calculator.Calculator;
+// calculator is a package and Calculator is a class in that package, calculator.* will import all the classes in calculator package
+
 class A{
     public int a;
     public void display(){
@@ -27,5 +31,10 @@ class Hello {
         obj.show("B class");
 
         // B is a child class of A and methods of A are overridden in B
+
+        Calculator c = new Calculator();
+        System.out.println(c.add(2, 3));
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
     }
 }

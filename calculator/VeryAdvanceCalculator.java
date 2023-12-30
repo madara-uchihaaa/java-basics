@@ -1,3 +1,4 @@
+package calculator;
 class VeryAdvanceCalculator extends AdvanceCalculator{
     public int square(int x){
         return x*x;
