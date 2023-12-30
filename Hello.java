@@ -1,24 +1,26 @@
-enum Laptop {
-    DELL(2), HP(2), LENOVO(2), APPLE(2), ASUS(2);
+// Annotations;
 
-    private int ram;
-    Laptop(int ram) {
-        this.ram = ram;
+@Deprecated // Annotation used to indicate that a method is deprecated
+class A{
+    public void print(){
+        System.out.println("A");
     }
+}
 
-    public int getRam() {
-        return ram;
+class B extends A{
+    @Override // Annotation used to override a method
+    public void print(){
+        System.out.println("B");
     }
 }
 
 class Hello {
     public static void main(String[] arguments) {
-
-        Laptop laptop = Laptop.DELL;
-        System.out.println(laptop.getRam());
-
-        for(Laptop l: Laptop.values()) {
-            System.out.println(l + " " + l.getRam());
-        }
+        A a = new A();
+        B b = new B();
+        A c = new B();
+        a.print();
+        b.print();
+        c.print();
     }
 }
