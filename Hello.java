@@ -1,37 +1,26 @@
-class ZeroException extends Exception {
-    ZeroException(String s) {
-        super(s);
+class A {
+    public int getValue() throws ArithmeticException {
+        return 1;
+    }
+
+    public int getLength() throws NullPointerException {
+        String s = null;
+        return s.length();
     }
 }
 
 class Hello {
     public static void main(String[] arguments) {
-
-        int x = 0;
-        int nums[] = { 1, 2, 3, 4, 5 };
-        String s = null;
+        A a = new A();
         try {
-            if (x == 0) {
-                // throw new ArithmeticException("x is 0");
-                throw new ZeroException("x is 0");
-            }
-            int j = 10 / x;
-
-            System.out.println("Result after 0: " + j);
-            System.out.println("Value at 5: " + nums[2]);
-            System.out.println("String length: " + s.length());
+            System.out.println(a.getValue());
+            System.out.println(a.getLength());
         } catch (ArithmeticException e) {
-            System.out.println("Error for ArithmeticException: " + e.getMessage());
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error for ArrayIndexOutOfBoundsException: " + e.getMessage());
-        } catch (ZeroException e) {
-            System.out.println("Error for ZeroException: " + e.getMessage());
+            System.out.println("ArithmeticException");
         } catch (NullPointerException e) {
-            System.out.println("Error for NullPointerException: " + e.getMessage());
+            System.out.println("NullPointerException");
         } catch (Exception e) {
-            System.out.println("Error for Exception: " + e.getMessage());
+            System.out.println("Exception");
         }
-
-        // You cant handle errors you can only catch them
     }
 }
