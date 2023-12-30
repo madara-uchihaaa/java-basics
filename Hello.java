@@ -1,40 +1,44 @@
-import java.util.ArrayList;
-import calculator.Calculator;
-// calculator is a package and Calculator is a class in that package, calculator.* will import all the classes in calculator package
-
-class A{
-    public int a;
-    public void display(){
-        System.out.println("A");
-    }
-    public void show(){
-        System.out.println("A");
+class A {
+    int marks; // 1:
+    // private int marks; // 2:
+    protected int age; // 3:
+}
+class B extends A {
+    void display() {
+        System.out.println(age); // 3: Will work
+        System.out.println(marks); // 1: Will work
+        // System.out.println(marks); // 2: Will not work due to private
     }
 }
-class B extends A{
-    public int b;
-    public void display(){
-        System.out.println("B");
-    }
-    public void show(String s){
-        System.out.println(s);
+class D extends B {
+    void display() {
+        System.out.println(age); // 3: Will work
+        System.out.println(marks); // 1: Will work
+        // System.out.println(marks); // 2: Will not work due to private
     }
 }
-
 class Hello {
     public static void main(String[] arguments) {
-        B obj = new B();
-        obj.display();
-        obj.show();
-        // Since show() is in A only and not in B, it will call the show() of A
-        // But if we pass a string in show() of B, it will call the show() of B
-        obj.show("B class");
+        A a = new A();
+        a.marks = 100; // 1: Will work
+        a.marks = 100; // 2: Will not work due to private
 
-        // B is a child class of A and methods of A are overridden in B
-
-        Calculator c = new Calculator();
-        System.out.println(c.add(2, 3));
-
-        ArrayList<Integer> list = new ArrayList<Integer>();
     }
 }
+
+// 1: Public means the variable/method is accessible from anywhere
+// 2: Private means the variable/method is accessible only within the class
+// 3: Protected means the variable/method is accessible within the class and its subclasses
+
+
+//                          Private   Public      Protected  Default
+
+// Same Class               Y         Y           Y          Y
+
+// Same package subclass    N         Y           Y          Y
+
+// Same pkge nonSubclass    N         Y           Y          Y
+
+// Diff package subclass    N         Y           Y          N
+
+// Diff package nonSubclass N         Y           N          N
