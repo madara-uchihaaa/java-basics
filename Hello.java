@@ -1,19 +1,19 @@
-class A extends Thread {
-    // In thread a run method is there and we have to override it.
-    public void run() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println("A->" + i);
-            // Wait
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
+// class A implements Runnable {
+//     // In thread a run method is there and we have to override it.
+//     public void run() {
+//         for (int i = 0; i < 100; i++) {
+//             System.out.println("A->" + i);
+//             // Wait
+//             try {
+//                 Thread.sleep(10);
+//             } catch (InterruptedException e) {
+//                 e.printStackTrace();
+//             }
+//         }
+//     }
+// }
 
-class B extends Thread {
+class B implements Runnable {
     public void run() {
         for (int i = 0; i < 100; i++) {
             System.out.println("B->" + i);
@@ -31,19 +31,44 @@ class Hello {
     public static void main(String[] arguments) {
         // Threads in Java
 
-        A a = new A();
-        a.start();
+        // Method 1
+        // Runnable a = new A();
 
-        System.out.println(a.getPriority() + "a.priority");
+        // Method 2
+        // Runnable a = new Runnable() {
+        //     public void run() {
+        //         for (int i = 0; i < 100; i++) {
+        //             System.out.println("A->" + i);
+        //             // Wait
+        //             try {
+        //                 Thread.sleep(10);
+        //             } catch (InterruptedException e) {
+        //                 e.printStackTrace();
+        //             }
+        //         }
+        //     }
+        // };
 
-        // You can also set the priority of the thread
-        // a.setPriority(10);   // 1-10 , through this you are suggesting the scheduler to give more time to this thread.
+        // Method 3
+        Runnable a = () -> {
+            for (int i = 0; i < 100; i++) {
+                System.out.println("A->" + i);
+                // Wait
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
 
-        B b = new B();
-        b.start();
-        System.out.println(b.getPriority() + "b.priority");
+        Runnable b = new B();
 
-        // These things can be run in parallel.
-        // Make class a thread by extending Thread class
+        Thread t1 = new Thread(a);
+        Thread t2 = new Thread(b);
+
+        t1.start();
+        t2.start();
+
     }
 }
