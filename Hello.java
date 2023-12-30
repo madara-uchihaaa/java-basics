@@ -1,35 +1,66 @@
-// To prevent getting extended use final
-// final class A{ // A cannot be get extended
-// Method can also be final
-class A{ // A can be get extended
-    public void print(){
+class A {
+
+    int a;
+    int b;
+
+    public void print() {
         System.out.println("A");
     }
-    public int add(int a, int b){
+
+    public int add(int a, int b) {
         return a + b;
     }
-}
 
-class B extends A{
-    public void print(){
-        System.out.println("B");
+    // By default, it will call toString() method of object but you can override it like this
+    public String toString() {
+        return "A";
     }
-    public int add(int a, int b){
-        return a + b + 1;
+
+    // Better to override equals() method when you override hashCode() method
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + a;
+        result = prime * result + b;
+        return result;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        A other = (A) obj;
+        if (a != other.a)
+            return false;
+        if (b != other.b)
+            return false;
+        return true;
+    }
+    
 }
 
 class Hello {
     public static void main(String[] arguments) {
-        int x = 3; // x is a variable of type int will work;
-        // final int x = 3; // x is a variable of type int will not work;
-        final int y = 2; // y is a variable of type int will not work;
-        // y = y * 2; // ? 
-        x = x * 17;
-        System.out.println("x is " + x);
-
         A a = new A();
-        a.print();
-        System.out.println(a.add(1, 2));
+        a.a = 1;
+        a.b = 2;
+
+        A b = new A();
+        b.a = 1;
+        b.b = 2;
+
+        System.out.println(a + "->" + a.a + "->" + a.b);
+        // When you print object, it will call toString() method
+
+        Boolean c = a == b;
+        System.out.println(c);
+
+        Boolean d = a.equals(b);
+        System.out.println(d);
     }
 }
