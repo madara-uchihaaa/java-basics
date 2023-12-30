@@ -1,49 +1,66 @@
+abstract class Car { // Abstract class
+    String name;
+    String color;
+    int price;
+
+    Car(String name, String color, int price) {
+        this.name = name;
+        this.color = color;
+        this.price = price;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Color: " + color);
+        System.out.println("Price: " + price);
+    }
+
+    public abstract void setMatSpeed(); // This will be implemented by the child class
+
+    public abstract void isFlying(); // This will be implemented by the child class
+}
+
+class BMW extends Car { // Concrete class
+    int maxSpeed;
+
+    BMW(String name, String color, int price, int maxSpeed) {
+        super(name, color, price);
+        this.maxSpeed = maxSpeed;
+    }
+
+    void display() {
+        super.display();
+        System.out.println("Max Speed: " + maxSpeed);
+    }
+
+    public void setMatSpeed() {
+        maxSpeed = 300;
+    }
+
+    public void isFlying() {
+        System.out.println("BMW is flying");
+    }
+    // Every abstract method in the parent class must be implemented in the child
+}
+
 class Hello {
     public static void main(String[] arguments) {
-        // Wrapper class for primitive type
 
-        // Integer
-        Integer i = new Integer(10);
+        // You cant create an object of an abstract class
 
-        // Double
-        Double d = new Double(10.5);
+        // Car car1 = new Car("BMW", "Black", 100000);
+        // Car car2 = new Car("Audi", "White", 200000);
+        // Car car3 = new Car("Mercedes", "Red", 300000);
 
-        // Character
-        Character c = new Character('a');
+        // System.out.println("Car 1");
+        // car1.display();
+        // System.out.println("Car 2");
+        // car2.display();
+        // System.out.println("Car 3");
+        // car3.display();
 
-        // Boolean
-        Boolean b = new Boolean(true);
-
-        // Byte
-        Byte by = new Byte((byte) 10);
-
-        // Short
-        Short s = new Short((short) 10);
-
-        // Long
-        Long l = new Long(10);
-
-        System.out.println(i);
-        System.out.println(d);
-        System.out.println(c);
-        System.out.println(b);
-        System.out.println(by);
-        System.out.println(s);
-        System.out.println(l);
-
-        Integer x = 10; // No need to use new keyword
-
-        int num = 7;
-        Integer y = num; // Autoboxing -> Integer y = new Integer(num);
-
-        int z = y; // auto-Unboxing -> int z = y.intValue();
-
-        // Autoboxing -> Defined as a primitive type but used as a wrapper class
-        // Auto-Unboxing -> Defined as a wrapper class but used as a primitive type
-
-        String str = "10";
-        int a = Integer.parseInt(str); // String to int
-        System.out.println(a);
-
+        BMW bmw = new BMW("BMW", "Black", 100000, 200);
+        bmw.display();
+        bmw.setMatSpeed();
     }
 }
