@@ -1,31 +1,27 @@
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
-
+import java.util.HashMap;
+import java.util.Map;
 class Hello {
     public static void main(String[] arguments) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
 
-        // Set -> To store unique values
-        Set<String> set = new HashSet<String>();
-        // Hashset -> To store unique values with no order
+        map.put("a", 1);
+        map.put("b", 2);
+        map.put("c", 3);
+        map.put("a", 1);
+        map.put("b", 2);
+        map.put("c", 3);
 
-        // TreeSet -> To store unique values with ascending order
+        map.put("a", map.get("a") + 1);
 
-        Set<Integer> treeSet = new TreeSet<Integer>();
+        map.forEach((k, v) -> System.out.println(k + " " + v));
 
-        treeSet.add(3);
-        treeSet.add(1);
-        treeSet.add(2);
-        treeSet.add(4);
+        System.out.println(map.keySet());
+        System.out.println(map.values());
+        System.out.println(map.entrySet());
 
-        treeSet.forEach((s) -> System.out.println(s));
+        // HashTable vs HashMap
 
-        set.add("Hello");
-        set.add("World");
-        set.add("Hello");
-        set.add("World");
-
-        set.forEach((s) -> System.out.println(s));
-        System.out.println(set);
+        // HashTable is synchronized, HashMap is not
+        // HashTable does not allow null keys or values, HashMap does
     }
 }
