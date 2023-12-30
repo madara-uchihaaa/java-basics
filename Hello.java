@@ -1,27 +1,46 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Student {
+    int marks;
+    String name;
+
+    Student(int marks, String name) {
+        this.marks = marks;
+        this.name = name;
+    }
+}
+
 class Hello {
     public static void main(String[] arguments) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        List<Integer> list = new ArrayList<Integer>();
 
-        map.put("a", 1);
-        map.put("b", 2);
-        map.put("c", 3);
-        map.put("a", 1);
-        map.put("b", 2);
-        map.put("c", 3);
+        for (int i = 0; i < 10; i++) {
+            list.add(i);
+        }
 
-        map.put("a", map.get("a") + 1);
+        list.sort(Collections.reverseOrder());
+        System.out.println(list);
 
-        map.forEach((k, v) -> System.out.println(k + " " + v));
+        list.sort((a, b) -> b - a);
+        System.out.println(list);
 
-        System.out.println(map.keySet());
-        System.out.println(map.values());
-        System.out.println(map.entrySet());
+        list.sort((a, b) -> a - b);
+        System.out.println(list);
 
-        // HashTable vs HashMap
 
-        // HashTable is synchronized, HashMap is not
-        // HashTable does not allow null keys or values, HashMap does
+
+        List<Student> students = new ArrayList<Student>();
+
+        for (int i = 0; i < 10; i++) {
+            students.add(new Student(i, "Student " + i));
+        }
+
+        students.sort((a, b) -> b.marks - a.marks);
+
+        for (Student student : students) {
+            System.out.println(student.name + " " + student.marks);
+        }
     }
 }
