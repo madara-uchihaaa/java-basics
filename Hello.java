@@ -18,6 +18,18 @@ abstract class Car { // Abstract class
     public abstract void setMatSpeed(); // This will be implemented by the child class
 
     public abstract void isFlying(); // This will be implemented by the child class
+
+    class Engine {
+        int enginePower;
+
+        Engine(int enginePower) {
+            this.enginePower = enginePower;
+        }
+
+        void display() {
+            System.out.println("Engine Power: " + enginePower);
+        }
+    }
 }
 
 class BMW extends Car { // Concrete class
@@ -62,5 +74,8 @@ class Hello {
         BMW bmw = new BMW("BMW", "Black", 100000, 200);
         bmw.display();
         bmw.setMatSpeed();
+
+        Car.Engine engine = bmw.new Engine(1000);
+        engine.display();
     }
 }
