@@ -1,37 +1,31 @@
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 class Hello {
     public static void main(String[] arguments) {
-        // Different apis of ds
-        // 1. Array
-        // 2. ArrayList
-        // 3. LinkedList
-        // 4. Stack
-        // 5. Queue
-        // 6. PriorityQueue
-        // 7. Deque
-        // 8. HashSet
-        // 9. LinkedHashSet
-        // 10. TreeSet
-        // 11. HashMap
-        // 12. LinkedHashMap
-        // 13. TreeMap
-        // 14. HashTable
-        // 15. WeakHashMap
-        // 16. IdentityHashMap
-        // 17. EnumMap
-        // 18. PriorityQueue
-        // ... and many more
 
-        Collection<String> collection = new ArrayList<String>();
+        // Set -> To store unique values
+        Set<String> set = new HashSet<String>();
+        // Hashset -> To store unique values with no order
 
-        collection.add("Hello");
-        collection.add("World");
-        collection.add("Rishabh");
+        // TreeSet -> To store unique values with ascending order
 
-        collection.forEach(item -> System.out.println("value->:" + item));
+        Set<Integer> treeSet = new TreeSet<Integer>();
 
-        System.out.println(collection);
+        treeSet.add(3);
+        treeSet.add(1);
+        treeSet.add(2);
+        treeSet.add(4);
+
+        treeSet.forEach((s) -> System.out.println(s));
+
+        set.add("Hello");
+        set.add("World");
+        set.add("Hello");
+        set.add("World");
+
+        set.forEach((s) -> System.out.println(s));
+        System.out.println(set);
     }
 }
