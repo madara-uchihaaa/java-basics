@@ -1,10 +1,17 @@
+
+
 class Hello {
     public static void main(String[] arguments) {
-        int x;
-        x = 5;
-        if (x == 5) {
-            System.out.println("x must be 5");
-        }
-        new Hello(); // Anyonymous object
+        AdvanceCalculator advanceCalculator = new AdvanceCalculator();
+
+        System.out.println("Power of 2^3 is " + advanceCalculator.power(2, 3));
+        advanceCalculator.power(0, 0);
+
+        // To access Calculator class, we need to create an object of Calculator class
+        // or extend Calculator class
+
+        advanceCalculator.add(4, 0);
+
+        // In java multiple inheritance is not allowed
     }
 }
