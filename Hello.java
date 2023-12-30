@@ -1,25 +1,24 @@
-enum Color {
-    RED, GREEN, BLUE;
+enum Laptop {
+    DELL(2), HP(2), LENOVO(2), APPLE(2), ASUS(2);
+
+    private int ram;
+    Laptop(int ram) {
+        this.ram = ram;
+    }
+
+    public int getRam() {
+        return ram;
+    }
 }
+
 class Hello {
     public static void main(String[] arguments) {
-        System.out.println("Hello, World!");
-        System.out.println(Color.RED);
-        System.out.println(Color.GREEN);
-        System.out.println(Color.BLUE);
 
-        Color c = Color.RED;
-        Color res = switch (c) {
-            case RED -> Color.GREEN;
-            case GREEN -> Color.BLUE;
-            case BLUE -> Color.RED;
-        };
-        System.out.println(res);
-        System.out.println(Color.RED.ordinal());
+        Laptop laptop = Laptop.DELL;
+        System.out.println(laptop.getRam());
 
-        Color[] colors = Color.values();
-        for (Color color : colors) {
-            System.out.println(color);
+        for(Laptop l: Laptop.values()) {
+            System.out.println(l + " " + l.getRam());
         }
-    }   
+    }
 }
